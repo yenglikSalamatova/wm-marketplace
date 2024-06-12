@@ -1,5 +1,5 @@
 import { HelmetProvider, Helmet } from "react-helmet-async";
-import { TestDiv } from "./styled";
+import { PageWrapper } from "@/App.styled";
 
 const HomePage: React.FC = () => {
   return (
@@ -10,10 +10,10 @@ const HomePage: React.FC = () => {
         </Helmet>
       </HelmetProvider>
 
-      <TestDiv>
+      <PageWrapper>
         <h2>Welcome to the WM Marketplace!</h2>
         <p>Buy and sell items with ease.</p>
-      </TestDiv>
+      </PageWrapper>
     </>
   );
 };
