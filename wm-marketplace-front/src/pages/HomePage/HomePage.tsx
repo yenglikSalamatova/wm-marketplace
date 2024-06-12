@@ -1,5 +1,9 @@
 import { HelmetProvider, Helmet } from "react-helmet-async";
 import { PageWrapper } from "@/App.styled";
+import { ProductGroup, ProductGroupContainer } from "./styled";
+import { dummyProducts } from "../dummyProducts";
+import ProductCard from "@/blocks/ProductCard";
+import Heading from "@/components/Heading.styled";
 
 const HomePage: React.FC = () => {
   return (
@@ -11,8 +15,14 @@ const HomePage: React.FC = () => {
       </HelmetProvider>
 
       <PageWrapper>
-        <h2>Welcome to the WM Marketplace!</h2>
-        <p>Buy and sell items with ease.</p>
+        <ProductGroup>
+          <Heading as="h2">Рекомендуемые товары</Heading>
+          <ProductGroupContainer>
+            {dummyProducts.map((product) => (
+              <ProductCard key={product.id} {...product} />
+            ))}
+          </ProductGroupContainer>
+        </ProductGroup>
       </PageWrapper>
     </>
   );
