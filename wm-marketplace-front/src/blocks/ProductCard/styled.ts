@@ -4,17 +4,19 @@ export const Wrapper = styled.div`
   position: relative;
   margin-top: 25px;
   width: 240px;
-  padding: 0 10px 10px;
+  padding: 10px;
   z-index: var(--z-index-1);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  border-radius: 5px;
 `;
 
 export const Image = styled.img`
   width: 100%;
   height: 200px;
-  object-fit: cover;
+  object-fit: scale-down;
+  text-align: center;
   border-radius: 5px;
 `;
 
@@ -55,10 +57,17 @@ export const TitleWrapper = styled.div`
 
 export const PricesBlock = styled.div`
   margin-top: 5px;
+  margin-bottom: 10px;
   display: flex;
   align-items: center;
   gap: 10px;
   justify-content: space-between;
+`;
+
+export const LikeButton = styled.div`
+  position: absolute;
+  top: 0px;
+  right: 0px;
 `;
 
 export const Price = styled.span`

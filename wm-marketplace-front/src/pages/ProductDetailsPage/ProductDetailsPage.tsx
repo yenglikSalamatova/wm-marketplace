@@ -1,3 +1,4 @@
+import { PageWrapper } from "@/App.styled";
 import { HelmetProvider, Helmet } from "react-helmet-async";
 
 const ProductDetailsPage = () => {
@@ -8,7 +9,9 @@ const ProductDetailsPage = () => {
           <title>Product Details - WM Marketplace</title>
         </Helmet>
       </HelmetProvider>
-      <h1>Product Details Page</h1>
+      <PageWrapper>
+        <h1>Product Details Page</h1>
+      </PageWrapper>
     </div>
   );
 };

@@ -1,16 +1,17 @@
-import Heading from "@/components/Heading.styled";
+import Heading from "@/components/Heading/Heading.styled";
 import {
   DiscountedPrice,
   Image,
+  LikeButton,
   Price,
   PricesBlock,
   Status,
   TitleWrapper,
   Wrapper,
 } from "./styled";
-import { Button } from "@/components/Button.styled";
+import { Button } from "@/components/Button/Button.styled";
 import { Heart } from "lucide-react";
-import { ButtonIcon } from "@/components/ButtonIcon.styled";
+import { ButtonIcon } from "@/components/ButtonWithIcon/ButtonIcon.styled";
 import { Link } from "react-router-dom";
 
 interface I_ProductCardProps {
@@ -22,6 +23,7 @@ interface I_ProductCardProps {
   desc: string;
   top?: boolean;
   slug?: string;
+  hideLikes?: boolean;
 }
 
 const ProductCard: React.FC<I_ProductCardProps> = ({
@@ -51,11 +53,13 @@ const ProductCard: React.FC<I_ProductCardProps> = ({
         {priceDiscounted && (
           <DiscountedPrice>{priceRegular} тг.</DiscountedPrice>
         )}
-        <ButtonIcon>
-          <Heart size={24} />
-        </ButtonIcon>
       </PricesBlock>
-      <Button $size="medium" $variation="primary">
+      <LikeButton>
+        <ButtonIcon $variation="horizontal" $size="medium">
+          <Heart size={24} color="var(--color-neutral-800)" fill="white" />
+        </ButtonIcon>
+      </LikeButton>
+      <Button $size="medium" $variation="primary" $block>
         В корзину
       </Button>
     </Wrapper>

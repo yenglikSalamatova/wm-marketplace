@@ -3,7 +3,7 @@ import { PageWrapper } from "@/App.styled";
 import { ProductGroup, ProductGroupContainer } from "./styled";
 import { dummyProducts } from "../dummyProducts";
 import ProductCard from "@/blocks/ProductCard";
-import Heading from "@/components/Heading.styled";
+import Heading from "@/components/Heading/Heading.styled";
 
 const HomePage: React.FC = () => {
   return (

@@ -2,32 +2,20 @@ import styled, { createGlobalStyle } from "styled-components";
 
 export const AppStyles = createGlobalStyle`
 :root {
-  /* Primary Colors */
-  --color-primary-50: #E3F2FD;
-  --color-primary-100: #BBDEFB;
-  --color-primary-200: #90CAF9;
-  --color-primary-300: #64B5F6;
-  --color-primary-400: #42A5F5;
-  --color-primary-500: #2196F3;
-  --color-primary-600: #1E88E5;
-  --color-primary-700: #1976D2;
-  --color-primary-800: #1565C0;
-  --color-primary-900: #0D47A1;
-
-  /* Secondary Colors */
-  --color-secondary-50: #FCE4EC;
-  --color-secondary-100: #F8BBD0;
-  --color-secondary-200: #F48FB1;
-  --color-secondary-300: #F06292;
-  --color-secondary-400: #EC407A;
-  --color-secondary-500: #E91E63;
-  --color-secondary-600: #D81B60;
-  --color-secondary-700: #C2185B;
-  --color-secondary-800: #AD1457;
-  --color-secondary-900: #880E4F;
+ /* Primary Colors */
+ --color-primary-50: #cfdaed;
+  --color-primary-100: #b7c8e3;
+  --color-primary-200: #9fb5da;
+  --color-primary-300: #6e90c8;
+  --color-primary-400: #3e6bb5;
+  --color-primary-500: #0E46A3;
+  --color-primary-600: #0b3882;
+  --color-primary-700: #0a3172;
+  --color-primary-800: #072352;
+  --color-primary-900: #041531;
 
   /* Neutral Colors */
-  --color-neutral-50: #FAFAFA;
+  --color-neutral-50: #FFF;
   --color-neutral-100: #F5F5F5;
   --color-neutral-200: #EEEEEE;
   --color-neutral-300: #E0E0E0;
@@ -38,17 +26,7 @@ export const AppStyles = createGlobalStyle`
   --color-neutral-800: #424242;
   --color-neutral-900: #212121;
 
-  /* Accent Colors */
-  --color-accent-50: #FFF3E0;
-  --color-accent-100: #FFE0B2;
-  --color-accent-200: #FFCC80;
-  --color-accent-300: #FFB74D;
-  --color-accent-400: #FFA726;
-  --color-accent-500: #FF9800;
-  --color-accent-600: #FB8C00;
-  --color-accent-700: #F57C00;
-  --color-accent-800: #EF6C00;
-  --color-accent-900: #E65100;
+
 
   /* Additional Colors for Success, Warning, and Error */
   --color-success-500: #4CAF50;
@@ -71,6 +49,7 @@ export const AppStyles = createGlobalStyle`
   --border-radius-md: 8px;
   --border-radius-lg: 12px;
   --border-radius-xl: 16px;
+  --border-radius-2xl: 20px;
 
   /* Z-Index Levels */
   --z-index-1: 1
@@ -82,7 +61,7 @@ export const AppStyles = createGlobalStyle`
 
 
   /* Header and footer height */
-  --header-height: 60px;
+  --header-height: 70px;
   --footer-height: 40px;
 }
 
