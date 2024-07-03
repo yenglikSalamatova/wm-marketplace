@@ -39,23 +39,12 @@ const ProductCard: React.FC<I_ProductCardProps> = ({
   priceRegular,
   priceDiscounted,
   top,
+  hideLikes = false,
   isLiked,
 }) => {
-  console.log(
-    "ProductCard",
-    id,
-    slug,
-    imgSrc,
-    title,
-    priceRegular,
-    priceDiscounted,
-    top,
-    isLiked
-  );
-
   const dispatch: T_Dispatch = useDispatch();
 
-  const handleFavourite = useCallback(
+  const handleFavorite = useCallback(
     (e: React.MouseEvent<HTMLButtonElement>) => {
       e.preventDefault();
       dispatch(!isLiked ? setFavorite(id) : unsetFavorite(id));
@@ -82,17 +71,20 @@ const ProductCard: React.FC<I_ProductCardProps> = ({
           <DiscountedPrice>{priceRegular} тг.</DiscountedPrice>
         )}
       </PricesBlock>
-      <LikeButton>
-        <ButtonIcon
-          $variation="horizontal"
-          $size="medium"
-          $active={isLiked}
-          $color="var(--color-error-500)"
-          onClick={handleFavourite}
-        >
-          <Heart size={24} color="var(--color-neutral-800)" fill="white" />
-        </ButtonIcon>
-      </LikeButton>
+      {!hideLikes && (
+        <LikeButton>
+          <ButtonIcon
+            $variation="horizontal"
+            $size="medium"
+            $active={isLiked}
+            $color="var(--color-error-500)"
+            onClick={handleFavorite}
+          >
+            <Heart size={24} color="var(--color-neutral-800)" fill="white" />
+          </ButtonIcon>
+        </LikeButton>
+      )}
+
       <Button $size="small" $variation="primary" $block>
         В корзину
       </Button>

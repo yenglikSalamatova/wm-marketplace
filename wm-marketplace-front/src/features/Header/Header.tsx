@@ -22,9 +22,11 @@ import {
 } from "lucide-react";
 import { ButtonIcon } from "@/components/ButtonWithIcon/ButtonIcon.styled";
 import UserDropdownMenu from "./UserDropdownMenu";
+import { selectFavorites } from "../Favorites/selectors";
 
 const Header: React.FC = () => {
   const isLogged = useSelector(selectIsLogged);
+  const favoritesCount = useSelector(selectFavorites).length;
 
   const [searchInput, setSearchInput] = useState<string>("");
 
@@ -61,7 +63,11 @@ const Header: React.FC = () => {
             </ButtonIcon>
 
             <Link to="/favorites">
-              <ButtonIcon $size="small" $variation="vertical">
+              <ButtonIcon
+                $size="small"
+                $variation="vertical"
+                $notificationCount={favoritesCount}
+              >
                 <Heart size={24} color="var(--color-neutral-500)" />
                 Избранное
               </ButtonIcon>
