@@ -1,5 +1,6 @@
 import { useCallback, useRef, useState } from "react";
 import { DropdownWrapper, Wrapper } from "./styled";
+import { useOutsideClick } from "@/helpers/hooks";
 
 interface I_DropdownPanelProps {
   toggler: React.ElementType<{ onClick: () => void }>;
@@ -22,6 +23,8 @@ const DropdownPanel: React.FC<I_DropdownPanelProps> = ({
   }, []);
 
   const Toggler = toggler;
+
+  useOutsideClick(dropdownWrapperRef, handleToggle);
 
   return (
     <Wrapper>
