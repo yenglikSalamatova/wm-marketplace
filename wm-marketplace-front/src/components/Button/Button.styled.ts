@@ -4,7 +4,6 @@ const sizes = {
   small: css`
     font-size: 12px;
     padding: 8px 16px;
-    text-transform: uppercase;
     font-weight: 600;
     text-align: center;
     word-wrap: break-word;

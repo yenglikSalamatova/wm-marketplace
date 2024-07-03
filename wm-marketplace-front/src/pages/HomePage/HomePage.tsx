@@ -4,8 +4,12 @@ import { ProductGroup, ProductGroupContainer } from "./styled";
 import { dummyProducts } from "../dummyProducts";
 import ProductCard from "@/blocks/ProductCard";
 import Heading from "@/components/Heading/Heading.styled";
+import { useSelector } from "react-redux";
+import { selectFavorites } from "@/features/Favorites/selectors";
 
 const HomePage: React.FC = () => {
+  const favoriteProducts = useSelector(selectFavorites);
+
   return (
     <>
       <HelmetProvider>
@@ -19,7 +23,11 @@ const HomePage: React.FC = () => {
           <Heading as="h2">Рекомендуемые товары</Heading>
           <ProductGroupContainer>
             {dummyProducts.map((product) => (
-              <ProductCard key={product.id} {...product} />
+              <ProductCard
+                key={product.id}
+                {...product}
+                isLiked={favoriteProducts.includes(product.id)}
+              />
             ))}
           </ProductGroupContainer>
         </ProductGroup>

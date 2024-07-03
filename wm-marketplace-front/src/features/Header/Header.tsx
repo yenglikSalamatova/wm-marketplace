@@ -60,10 +60,12 @@ const Header: React.FC = () => {
               Заказы
             </ButtonIcon>
 
-            <ButtonIcon $size="small" $variation="vertical">
-              <Heart size={24} color="var(--color-neutral-500)" />
-              Избранное
-            </ButtonIcon>
+            <Link to="/favorites">
+              <ButtonIcon $size="small" $variation="vertical">
+                <Heart size={24} color="var(--color-neutral-500)" />
+                Избранное
+              </ButtonIcon>
+            </Link>
 
             <ButtonIcon
               $size="small"

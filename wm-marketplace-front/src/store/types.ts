@@ -10,7 +10,7 @@ export type T_RootState = ReturnType<typeof store.getState>;
 export type T_AppThunk<T_ReturnType = void> = ThunkAction<
   T_ReturnType,
   T_RootState,
-  unknown,
+  undefined,
   Action<string>
 >;
 export type T_Dispatch = typeof store.dispatch;

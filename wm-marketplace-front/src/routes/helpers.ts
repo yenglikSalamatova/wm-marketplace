@@ -4,6 +4,7 @@ export const pathsPublic: { [k: string]: string } = {
   home: "/",
   productDetails: "/product/:idOrSlug",
   login: "/login",
+  favorites: "/favorites",
 };
 
 export const pathsPrivate: { [k: string]: string } = {

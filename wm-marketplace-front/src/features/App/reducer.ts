@@ -1,6 +1,6 @@
-import { T_AppThunk, T_Reducer } from "@/store/types";
+import { T_AppThunk, T_Dispatch, T_Reducer } from "@/store/types";
 import { I_AppStore } from "./types";
-import { Dispatch, createSlice } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState: I_AppStore = {
   isLogged: true,
@@ -26,7 +26,7 @@ export const { isLogged: setIsLoggedAction } = appSlice.actions;
 
 export const setIsLogged =
   (isLogged: boolean): T_AppThunk =>
-  (dispatch: Dispatch) => {
+  (dispatch: T_Dispatch) => {
     dispatch(setIsLoggedAction(isLogged));
   };
 

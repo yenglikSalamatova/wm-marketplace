@@ -1,9 +1,12 @@
 import styled, { css } from "styled-components";
 
 interface ButtonIconProps {
-  $size: "small" | "medium" | "large";
-  $variation: "vertical" | "horizontal";
+  $size?: "small" | "medium" | "large";
+  $variation?: "vertical" | "horizontal";
   $notificationCount?: number;
+  $active?: boolean;
+  $color?: string;
+  $disabled?: boolean;
 }
 
 const sizes = {
@@ -37,7 +40,21 @@ export const ButtonIcon = styled.button<ButtonIconProps>`
   gap: 8px;
   position: relative;
 
-  ${(props) => sizes[props.$size]}
+  ${(props) =>
+    props.$disabled &&
+    css`
+      pointer-events: none;
+      opacity: 0.5;
+    `}
+
+  svg {
+    transition: all 0.3s;
+    fill: ${(props) =>
+      props.$active ? props.$color || "var(--color-primary-500)" : "none"};
+    stroke: ${(props) => props.$color || "var(--color-neutral-400)"};
+  }
+
+  ${(props) => sizes[props.$size || "medium"]}
   ${(props) =>
     props.$variation === "vertical"
       ? "flex-direction: column;"
@@ -64,10 +81,17 @@ export const ButtonIcon = styled.button<ButtonIconProps>`
       `;
     }
   }}
-  &:hover {
+
+&:hover {
     svg {
-      transition: all 0.3s;
-      stroke: var(--color-primary-500);
+      stroke: ${(props) => props.$color || "var(--color-primary-500)"};
+      ${(props) =>
+        props.$active &&
+        css`
+          stroke: ${props.$color ? props.$color : "var(--color-primary-700)"};
+          // Затемнение иконки при наведении
+          filter: brightness(0.9);
+        `}
     }
   }
 `;

@@ -13,6 +13,10 @@ import { Button } from "@/components/Button/Button.styled";
 import { Heart } from "lucide-react";
 import { ButtonIcon } from "@/components/ButtonWithIcon/ButtonIcon.styled";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { useCallback } from "react";
+import { setFavorite, unsetFavorite } from "@/features/Favorites/reducer";
+import { T_Dispatch } from "@/store/types";
 
 interface I_ProductCardProps {
   id: number;
@@ -24,6 +28,7 @@ interface I_ProductCardProps {
   top?: boolean;
   slug?: string;
   hideLikes?: boolean;
+  isLiked?: boolean;
 }
 
 const ProductCard: React.FC<I_ProductCardProps> = ({
@@ -34,7 +39,30 @@ const ProductCard: React.FC<I_ProductCardProps> = ({
   priceRegular,
   priceDiscounted,
   top,
+  isLiked,
 }) => {
+  console.log(
+    "ProductCard",
+    id,
+    slug,
+    imgSrc,
+    title,
+    priceRegular,
+    priceDiscounted,
+    top,
+    isLiked
+  );
+
+  const dispatch: T_Dispatch = useDispatch();
+
+  const handleFavourite = useCallback(
+    (e: React.MouseEvent<HTMLButtonElement>) => {
+      e.preventDefault();
+      dispatch(!isLiked ? setFavorite(id) : unsetFavorite(id));
+    },
+    [dispatch, isLiked, id]
+  );
+
   return (
     <Wrapper>
       <Link to={`/product/${slug || id}`}>
@@ -55,11 +83,17 @@ const ProductCard: React.FC<I_ProductCardProps> = ({
         )}
       </PricesBlock>
       <LikeButton>
-        <ButtonIcon $variation="horizontal" $size="medium">
+        <ButtonIcon
+          $variation="horizontal"
+          $size="medium"
+          $active={isLiked}
+          $color="var(--color-error-500)"
+          onClick={handleFavourite}
+        >
           <Heart size={24} color="var(--color-neutral-800)" fill="white" />
         </ButtonIcon>
       </LikeButton>
-      <Button $size="medium" $variation="primary" $block>
+      <Button $size="small" $variation="primary" $block>
         В корзину
       </Button>
     </Wrapper>

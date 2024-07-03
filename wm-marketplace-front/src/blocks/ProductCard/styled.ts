@@ -61,7 +61,6 @@ export const PricesBlock = styled.div`
   display: flex;
   align-items: center;
   gap: 10px;
-  justify-content: space-between;
 `;
 
 export const LikeButton = styled.div`
@@ -72,7 +71,7 @@ export const LikeButton = styled.div`
 
 export const Price = styled.span`
   display: inline-block;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 700;
   color: var(--text-color);
 `;
