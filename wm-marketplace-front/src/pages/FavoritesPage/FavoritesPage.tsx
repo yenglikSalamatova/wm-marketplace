@@ -20,6 +20,7 @@ const FavoritesPage: React.FC = () => {
       </HelmetProvider>
       <PageWrapper>
         <Heading as="h2">Избранное</Heading>
+
         <ProductGroupContainer>
           {dummyProducts
             .filter((p) => favoriteProducts.includes(p.id))
@@ -27,6 +28,7 @@ const FavoritesPage: React.FC = () => {
               <ProductCard key={product.id} {...product} isLiked={true} />
             ))}
         </ProductGroupContainer>
+        {favoriteProducts.length === 0 && <p>Нет избранных товаров</p>}
       </PageWrapper>
     </>
   );
